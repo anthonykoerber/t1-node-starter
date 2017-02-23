@@ -1,19 +1,19 @@
 const https = require('https')
 
 module.exports = {
-    entry: './src/index.jsx',
+    entry: './src/index.js',
     output: {
         path: __dirname + '/build',
-        filename: 'index.js'
+        filename: 'bundle.js'
     },
     module: {
         rules: [
             {
-                test: /\.jsx$/,
+                test: /\.js$/,
                 loader: 'babel-loader',
-                exclude: ['bower_components', 'node_modules'],
+                exclude: /(bower_components|node_modules)/,
                 query: {
-                    presets: ['es2015', 'react']
+                    presets: ['es2015']
                 }
             },
             {
